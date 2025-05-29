@@ -1,0 +1,442 @@
+khayal@L-KGHOSH-3420:~$ docker
+
+Usage:  docker [OPTIONS] COMMAND
+
+A self-sufficient runtime for containers
+
+Common Commands:
+  run         Create and run a new container from an image
+  exec        Execute a command in a running container
+  ps          List containers
+  build       Build an image from a Dockerfile
+  pull        Download an image from a registry
+  push        Upload an image to a registry
+  images      List images
+  login       Log in to a registry
+  logout      Log out from a registry
+  search      Search Docker Hub for images
+  version     Show the Docker version information
+  info        Display system-wide information
+
+Management Commands:
+  builder     Manage builds
+  container   Manage containers
+  context     Manage contexts
+  image       Manage images
+  manifest    Manage Docker image manifests and manifest lists
+  network     Manage networks
+  plugin      Manage plugins
+  system      Manage Docker
+  trust       Manage trust on Docker images
+  volume      Manage volumes
+
+Swarm Commands:
+  swarm       Manage Swarm
+
+Commands:
+  attach      Attach local standard input, output, and error streams to a running container
+  commit      Create a new image from a container's changes
+  cp          Copy files/folders between a container and the local filesystem
+  create      Create a new container
+  diff        Inspect changes to files or directories on a container's filesystem
+  events      Get real time events from the server
+  export      Export a container's filesystem as a tar archive
+  history     Show the history of an image
+  import      Import the contents from a tarball to create a filesystem image
+  inspect     Return low-level information on Docker objects
+  kill        Kill one or more running containers
+  load        Load an image from a tar archive or STDIN
+  logs        Fetch the logs of a container
+  pause       Pause all processes within one or more containers
+  port        List port mappings or a specific mapping for the container
+  rename      Rename a container
+  restart     Restart one or more containers
+  rm          Remove one or more containers
+  rmi         Remove one or more images
+  save        Save one or more images to a tar archive (streamed to STDOUT by default)
+  start       Start one or more stopped containers
+  stats       Display a live stream of container(s) resource usage statistics
+  stop        Stop one or more running containers
+  tag         Create a tag TARGET_IMAGE that refers to SOURCE_IMAGE
+  top         Display the running processes of a container
+  unpause     Unpause all processes within one or more containers
+  update      Update configuration of one or more containers
+  wait        Block until one or more containers stop, then print their exit codes
+
+Global Options:
+      --config string      Location of client config files (default "/home/khayal/.docker")
+  -c, --context string     Name of the context to use to connect to the daemon (overrides DOCKER_HOST env var and default
+                           context set with "docker context use")
+  -D, --debug              Enable debug mode
+  -H, --host list          Daemon socket to connect to
+  -l, --log-level string   Set the logging level ("debug", "info", "warn", "error", "fatal") (default "info")
+      --tls                Use TLS; implied by --tlsverify
+      --tlscacert string   Trust certs signed only by this CA (default "/home/khayal/.docker/ca.pem")
+      --tlscert string     Path to TLS certificate file (default "/home/khayal/.docker/cert.pem")
+      --tlskey string      Path to TLS key file (default "/home/khayal/.docker/key.pem")
+      --tlsverify          Use TLS and verify the remote
+  -v, --version            Print version information and quit
+
+Run 'docker COMMAND --help' for more information on a command.
+
+For more help on how to use Docker, head to https://docs.docker.com/go/guides/
+khayal@L-KGHOSH-3420:~$ docker pull infracloudio/csvserver:latest
+docker pull prom/prometheus:v2.45.2
+latest: Pulling from infracloudio/csvserver
+53806b9086b8: Pull complete
+255599f6524c: Pull complete
+636c329be4cd: Pull complete
+Digest: sha256:472ffe71ad99efd52ccc451079d78ab901ccc97a87a30ab5af4bf1c5c3fc9fc6
+Status: Downloaded newer image for infracloudio/csvserver:latest
+docker.io/infracloudio/csvserver:latest
+v2.45.2: Pulling from prom/prometheus
+9fa9226be034: Pull complete
+1617e25568b2: Pull complete
+d23c7198a34d: Pull complete
+5f2127fa3fe3: Pull complete
+0220544fce17: Pull complete
+c64fc07d8284: Pull complete
+89937711770a: Pull complete
+5144db0eb4de: Pull complete
+987c108e8040: Pull complete
+773d051f2f72: Pull complete
+e3fd187d45cb: Pull complete
+55bac67f7e11: Pull complete
+Digest: sha256:8cf63a779c484564428c8ab5aa61899f41b72e92232d930b2b001661d978bed8
+Status: Downloaded newer image for prom/prometheus:v2.45.2
+docker.io/prom/prometheus:v2.45.2
+khayal@L-KGHOSH-3420:~$
+khayal@L-KGHOSH-3420:~$
+khayal@L-KGHOSH-3420:~$ git clone https://github.com/infracloudio/csvserver.git
+Cloning into 'csvserver'...
+remote: Enumerating objects: 30, done.
+remote: Total 30 (delta 0), reused 0 (delta 0), pack-reused 30 (from 1)
+Receiving objects: 100% (30/30), 8.20 KiB | 2.73 MiB/s, done.
+Resolving deltas: 100% (8/8), done.
+khayal@L-KGHOSH-3420:~$
+khayal@L-KGHOSH-3420:~$
+khayal@L-KGHOSH-3420:~$
+khayal@L-KGHOSH-3420:~$ docker run infracloudio/csvserver:latest
+2025/05/29 13:39:38 error while reading the file "/csvserver/inputdata": open /csvserver/inputdata: no such file or directory
+khayal@L-KGHOSH-3420:~$
+khayal@L-KGHOSH-3420:~$
+khayal@L-KGHOSH-3420:~$ ls
+Downloads                       dev-sample-deploy-yodas             licenses                       scrape.py
+README.md                       devargocd_source.yaml               list-tags.py                   script.ps
+acr-json.json                   devinfra_control_plane_source.yaml  load-test.yaml                 secretproviderclas.yaml
+acr.json                        dind.yaml                           loft-namespace.json            shared_env.json
+acr.yaml                        docker.yaml                         loft_4.2.1_linux_amd64.tar.gz  snap
+acr_list.txt                    envtest.sh                          mm.py                          socket.yaml
+actions-runner-controller.yaml  error-log.log                       new-config.yaml                staff.json
+aks-payload.json                extract-image-name.py               new-dind.yaml                  swagger.json
+app.py                          extract-tags.py                     new.py                         tag-image.py
+appset.yaml                     file.py                             newtest.sh                     temp.json
+azuresdk.py                     get-list.py                         op.json                        test-connection.py
+bash.bash                       get-token-method.py                 op.yaml                        test-data-source.py
+bb.sh                           geturl.py                           output.json                    test-promotion.py
+build-agent.yaml                hello.sh                            output.yaml                    test.py
+cluster-create.py               helm-config.yaml                    packages-microsoft-prod.deb    test.sh
+cluster-create.sh               infra-config.yaml                   parameter.py                   testapp.py
+config.yaml                     infra_config.yaml                   parameter.sh                   testapp.yaml
+control_plane.json              infra_control_plane_source.yaml     parameters.json                testfile.txt
+control_plane_source.json       infrastructure_data.json            parse.py                       testkustomize.py
+control_plane_source.yaml       ingress-vcluster.yaml               read.py                        uat.json
+cp.yaml                         ingress.yaml                        requirements.txt               update.sh
+csvserver                       install-man-page.sh                 response.py                    values
+data-block-extract              install-powershell.sh               rootfull.yaml                  values-east.yaml
+data-source.py                  install.sh                          runnerDeploy.yaml              vcluster-linux-amd64
+db                              json.json                           sample.json                    vcluster.yaml
+debug.py                        khayal.py                           sample.sh                      with-csi.yaml
+def.py                          kubeconfig.yaml                     sample.yaml                    yq.1
+dep-central-controlplane        kustomization.yaml                  sample01.json                  yq_linux_amd64.tar.gz
+khayal@L-KGHOSH-3420:~$ cd  csvserver/
+khayal@L-KGHOSH-3420:~/csvserver$
+khayal@L-KGHOSH-3420:~/csvserver$
+khayal@L-KGHOSH-3420:~/csvserver$ ls
+README.md  solution
+khayal@L-KGHOSH-3420:~/csvserver$
+khayal@L-KGHOSH-3420:~/csvserver$ echo $RANDOM
+12721
+khayal@L-KGHOSH-3420:~/csvserver$
+khayal@L-KGHOSH-3420:~/csvserver$
+khayal@L-KGHOSH-3420:~/csvserver$ docker-compose
+
+The command 'docker-compose' could not be found in this WSL 2 distro.
+We recommend to activate the WSL integration in Docker Desktop settings.
+
+For details about using Docker Desktop with WSL 2, visit:
+
+https://docs.docker.com/go/wsl2/
+
+khayal@L-KGHOSH-3420:~/csvserver$
+khayal@L-KGHOSH-3420:~/csvserver$ echo /etc/releases
+/etc/releases
+khayal@L-KGHOSH-3420:~/csvserver$ echo /etc/osreleases
+/etc/osreleases
+khayal@L-KGHOSH-3420:~/csvserver$ cat /etc/os-release
+PRETTY_NAME="Ubuntu 22.04.2 LTS"
+NAME="Ubuntu"
+VERSION_ID="22.04"
+VERSION="22.04.2 LTS (Jammy Jellyfish)"
+VERSION_CODENAME=jammy
+ID=ubuntu
+ID_LIKE=debian
+HOME_URL="https://www.ubuntu.com/"
+SUPPORT_URL="https://help.ubuntu.com/"
+BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
+PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
+UBUNTU_CODENAME=jammy
+khayal@L-KGHOSH-3420:~/csvserver$
+khayal@L-KGHOSH-3420:~/csvserver$ docker compose version
+docker: 'compose' is not a docker command.
+See 'docker --help'
+khayal@L-KGHOSH-3420:~/csvserver$ mkdir -p ~/.docker/cli-plugins/
+curl -SL https://github.com/docker/compose/releases/download/v2.24.2/docker-compose-linux-x86_64 -o ~/.docker/cli-plugins/docker-compose
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100 58.1M  100 58.1M    0     0  3037k      0  0:00:19  0:00:19 --:--:-- 4407k
+khayal@L-KGHOSH-3420:~/csvserver$
+khayal@L-KGHOSH-3420:~/csvserver$ chmod +x ~/.docker/cli-plugins/docker-compose
+khayal@L-KGHOSH-3420:~/csvserver$
+khayal@L-KGHOSH-3420:~/csvserver$ docker compose version
+Docker Compose version v2.24.2
+khayal@L-KGHOSH-3420:~/csvserver$
+khayal@L-KGHOSH-3420:~/csvserver$
+khayal@L-KGHOSH-3420:~/csvserver$ ls
+README.md  solution
+khayal@L-KGHOSH-3420:~/csvserver$
+khayal@L-KGHOSH-3420:~/csvserver$
+khayal@L-KGHOSH-3420:~/csvserver$
+khayal@L-KGHOSH-3420:~/csvserver$ vi gencsv.sh
+khayal@L-KGHOSH-3420:~/csvserver$ vi gencsv.sh
+khayal@L-KGHOSH-3420:~/csvserver$ vi gencsv.sh
+khayal@L-KGHOSH-3420:~/csvserver$ bash gencsv.sh 2 8
+[ INFO ] Input value of Lower Bound is 2
+[ INFO ] Input value of Upper Bound is 8
+khayal@L-KGHOSH-3420:~/csvserver$
+khayal@L-KGHOSH-3420:~/csvserver$
+khayal@L-KGHOSH-3420:~/csvserver$ vi gencsv.sh
+khayal@L-KGHOSH-3420:~/csvserver$ bash gencsv.sh 2 8
+[ INFO ] Input value of Lower Bound is 2
+[ INFO ] Input value of Upper Bound is 8
+khayal@L-KGHOSH-3420:~/csvserver$
+khayal@L-KGHOSH-3420:~/csvserver$ vi gencsv.sh
+khayal@L-KGHOSH-3420:~/csvserver$ bash gencsv.sh 2 8
+[ INFO ] Input value of Lower Bound is 2
+[ INFO ] Input value of Upper Bound is 8
+khayal@L-KGHOSH-3420:~/csvserver$ ls
+README.md  gencsv.sh  inputFile  solution
+khayal@L-KGHOSH-3420:~/csvserver$ cat inputFile
+2, 133
+3, 85
+4, 266
+5, 296
+6, 239
+7, 215
+8, 228
+khayal@L-KGHOSH-3420:~/csvserver$
+khayal@L-KGHOSH-3420:~/csvserver$ rm inputFile
+khayal@L-KGHOSH-3420:~/csvserver$
+khayal@L-KGHOSH-3420:~/csvserver$ vi gencsv.sh
+khayal@L-KGHOSH-3420:~/csvserver$ bash gencsv.sh 2 8
+[ INFO ] Input value of Lower Bound is 2
+[ INFO ] Input value of Upper Bound is 8
+[ INFO ] Generating Random values..!
+2, 231
+[ INFO ] Generating Random values..!
+3, 159
+[ INFO ] Generating Random values..!
+4, 68
+[ INFO ] Generating Random values..!
+5, 272
+[ INFO ] Generating Random values..!
+6, 27
+[ INFO ] Generating Random values..!
+7, 95
+[ INFO ] Generating Random values..!
+8, 89
+khayal@L-KGHOSH-3420:~/csvserver$
+khayal@L-KGHOSH-3420:~/csvserver$ vi gencsv.sh
+khayal@L-KGHOSH-3420:~/csvserver$ bash gencsv.sh 2 8
+[ INFO ] Input value of Lower Bound is 2
+[ INFO ] Input value of Upper Bound is 8
+[ INFO ] Generating Random values..!
+2, 125
+3, 276
+4, 180
+5, 6
+6, 215
+7, 77
+8, 144
+khayal@L-KGHOSH-3420:~/csvserver$
+khayal@L-KGHOSH-3420:~/csvserver$
+khayal@L-KGHOSH-3420:~/csvserver$
+khayal@L-KGHOSH-3420:~/csvserver$ docker run -d --name csvserver infracloudio/csvserver:latest
+da327004049b69dfa6a9e68d13a85aa19c171268c31cdbf1a9aa7e306d20f34f
+khayal@L-KGHOSH-3420:~/csvserver$ docker ps -a
+CONTAINER ID   IMAGE                                 COMMAND                  CREATED          STATUS                      PORTS                                                                                                                                  NAMES
+da327004049b   infracloudio/csvserver:latest         "/csvserver/csvserver"   12 seconds ago   Exited (1) 12 seconds ago                                                                                                                                          csvserver
+1dfb67f06e02   infracloudio/csvserver:latest         "/csvserver/csvserver"   21 minutes ago   Exited (1) 21 minutes ago                                                                                                                                          loving_bartik
+5be0c18bc99c   gcr.io/k8s-minikube/kicbase:v0.0.46   "/usr/local/bin/entr…"   2 months ago     Exited (255) 2 months ago   127.0.0.1:32772->22/tcp, 127.0.0.1:32771->2376/tcp, 127.0.0.1:32770->5000/tcp, 127.0.0.1:32769->8443/tcp, 127.0.0.1:32768->32443/tcp   minikube
+khayal@L-KGHOSH-3420:~/csvserver$
+khayal@L-KGHOSH-3420:~/csvserver$ docker rm 5be0c18bc99c
+5be0c18bc99c
+khayal@L-KGHOSH-3420:~/csvserver$ docker ps -a
+CONTAINER ID   IMAGE                           COMMAND                  CREATED          STATUS                      PORTS     NAMES
+da327004049b   infracloudio/csvserver:latest   "/csvserver/csvserver"   35 seconds ago   Exited (1) 34 seconds ago             csvserver
+1dfb67f06e02   infracloudio/csvserver:latest   "/csvserver/csvserver"   21 minutes ago   Exited (1) 21 minutes ago             loving_bartik
+khayal@L-KGHOSH-3420:~/csvserver$
+khayal@L-KGHOSH-3420:~/csvserver$
+khayal@L-KGHOSH-3420:~/csvserver$ docker rm 1dfb67f06e02
+1dfb67f06e02
+khayal@L-KGHOSH-3420:~/csvserver$
+khayal@L-KGHOSH-3420:~/csvserver$
+khayal@L-KGHOSH-3420:~/csvserver$ cd ..
+khayal@L-KGHOSH-3420:~$
+khayal@L-KGHOSH-3420:~$
+khayal@L-KGHOSH-3420:~$
+khayal@L-KGHOSH-3420:~$
+khayal@L-KGHOSH-3420:~$
+khayal@L-KGHOSH-3420:~$ docker run -d --name csvserver infracloudio/csvserver:latest
+docker: Error response from daemon: Conflict. The container name "/csvserver" is already in use by container "da327004049b69dfa6a9e68d13a85aa19c171268c31cdbf1a9aa7e306d20f34f". You have to remove (or rename) that container to be able to reuse that name.
+See 'docker run --help'.
+khayal@L-KGHOSH-3420:~$ docker rm da327004049b
+da327004049b
+khayal@L-KGHOSH-3420:~$
+khayal@L-KGHOSH-3420:~$
+khayal@L-KGHOSH-3420:~$ docker run -d --name csvserver infracloudio/csvserver:latest
+a86da3301e4ccca661e66e4df5de3acf9924cd909bed1fd069052a04a5d60d30
+khayal@L-KGHOSH-3420:~$ docker ps -a
+CONTAINER ID   IMAGE                           COMMAND                  CREATED         STATUS                     PORTS     NAMES
+a86da3301e4c   infracloudio/csvserver:latest   "/csvserver/csvserver"   5 seconds ago   Exited (1) 4 seconds ago             csvserver
+khayal@L-KGHOSH-3420:~$
+khayal@L-KGHOSH-3420:~$
+khayal@L-KGHOSH-3420:~$
+khayal@L-KGHOSH-3420:~$ docker logs a86da3301e4c
+2025/05/29 14:01:54 error while reading the file "/csvserver/inputdata": open /csvserver/inputdata: no such file or directory
+khayal@L-KGHOSH-3420:~$ ls
+Downloads                       dev-sample-deploy-yodas             licenses                       scrape.py
+README.md                       devargocd_source.yaml               list-tags.py                   script.ps
+acr-json.json                   devinfra_control_plane_source.yaml  load-test.yaml                 secretproviderclas.yaml
+acr.json                        dind.yaml                           loft-namespace.json            shared_env.json
+acr.yaml                        docker.yaml                         loft_4.2.1_linux_amd64.tar.gz  snap
+acr_list.txt                    envtest.sh                          mm.py                          socket.yaml
+actions-runner-controller.yaml  error-log.log                       new-config.yaml                staff.json
+aks-payload.json                extract-image-name.py               new-dind.yaml                  swagger.json
+app.py                          extract-tags.py                     new.py                         tag-image.py
+appset.yaml                     file.py                             newtest.sh                     temp.json
+azuresdk.py                     get-list.py                         op.json                        test-connection.py
+bash.bash                       get-token-method.py                 op.yaml                        test-data-source.py
+bb.sh                           geturl.py                           output.json                    test-promotion.py
+build-agent.yaml                hello.sh                            output.yaml                    test.py
+cluster-create.py               helm-config.yaml                    packages-microsoft-prod.deb    test.sh
+cluster-create.sh               infra-config.yaml                   parameter.py                   testapp.py
+config.yaml                     infra_config.yaml                   parameter.sh                   testapp.yaml
+control_plane.json              infra_control_plane_source.yaml     parameters.json                testfile.txt
+control_plane_source.json       infrastructure_data.json            parse.py                       testkustomize.py
+control_plane_source.yaml       ingress-vcluster.yaml               read.py                        uat.json
+cp.yaml                         ingress.yaml                        requirements.txt               update.sh
+csvserver                       install-man-page.sh                 response.py                    values
+data-block-extract              install-powershell.sh               rootfull.yaml                  values-east.yaml
+data-source.py                  install.sh                          runnerDeploy.yaml              vcluster-linux-amd64
+db                              json.json                           sample.json                    vcluster.yaml
+debug.py                        khayal.py                           sample.sh                      with-csi.yaml
+def.py                          kubeconfig.yaml                     sample.yaml                    yq.1
+dep-central-controlplane        kustomization.yaml                  sample01.json                  yq_linux_amd64.tar.gz
+khayal@L-KGHOSH-3420:~$ cd csvserver/
+khayal@L-KGHOSH-3420:~/csvserver$
+khayal@L-KGHOSH-3420:~/csvserver$
+khayal@L-KGHOSH-3420:~/csvserver$ ls
+README.md  gencsv.sh  inputFile  solution
+khayal@L-KGHOSH-3420:~/csvserver$ vi gencsv.sh
+khayal@L-KGHOSH-3420:~/csvserver$
+khayal@L-KGHOSH-3420:~/csvserver$ ls
+README.md  gencsv.sh  inputFile  solution
+khayal@L-KGHOSH-3420:~/csvserver$
+khayal@L-KGHOSH-3420:~/csvserver$ docker run -d --rm --name csvserver -v "$PWD/inputFile":/csvserver/inputdata infracloudio/csvserver:latest
+docker: Error response from daemon: Conflict. The container name "/csvserver" is already in use by container "a86da3301e4ccca661e66e4df5de3acf9924cd909bed1fd069052a04a5d60d30". You have to remove (or rename) that container to be able to reuse that name.
+See 'docker run --help'.
+khayal@L-KGHOSH-3420:~/csvserver$ docker rm csvserver
+csvserver
+khayal@L-KGHOSH-3420:~/csvserver$ docker run -d --rm --name csvserver -v "$PWD/inputFile":/csvserver/inputdata infracloudio/csvserver:latest
+1c4380f726d3593efe1ff1eca5e3e8276d2910257b3b99cd14e3dc1e31b7cec9
+khayal@L-KGHOSH-3420:~/csvserver$
+khayal@L-KGHOSH-3420:~/csvserver$
+khayal@L-KGHOSH-3420:~/csvserver$ docker ps -a
+CONTAINER ID   IMAGE                           COMMAND                  CREATED         STATUS         PORTS      NAMES
+1c4380f726d3   infracloudio/csvserver:latest   "/csvserver/csvserver"   4 seconds ago   Up 3 seconds   9300/tcp   csvserver
+khayal@L-KGHOSH-3420:~/csvserver$
+khayal@L-KGHOSH-3420:~/csvserver$
+khayal@L-KGHOSH-3420:~/csvserver$ docker logs csvserver
+2025/05/29 14:12:28 listening on ****
+khayal@L-KGHOSH-3420:~/csvserver$
+khayal@L-KGHOSH-3420:~/csvserver$
+khayal@L-KGHOSH-3420:~/csvserver$
+khayal@L-KGHOSH-3420:~/csvserver$ docker exec -ti csvserver -- /bin/bash
+OCI runtime exec failed: exec failed: unable to start container process: exec: "--": executable file not found in $PATH: unknown
+khayal@L-KGHOSH-3420:~/csvserver$ docker exec -ti csvserver -- /bin/sh
+OCI runtime exec failed: exec failed: unable to start container process: exec: "--": executable file not found in $PATH: unknown
+khayal@L-KGHOSH-3420:~/csvserver$ docker exec -ti csvserver /bin/sh
+sh-4.4# exit
+khayal@L-KGHOSH-3420:~/csvserver$
+khayal@L-KGHOSH-3420:~/csvserver$ docker exec -ti csvserver /bin/bash
+[root@1c4380f726d3 csvserver]#
+[root@1c4380f726d3 csvserver]#
+[root@1c4380f726d3 csvserver]#
+[root@1c4380f726d3 csvserver]#
+[root@1c4380f726d3 csvserver]# exit
+khayal@L-KGHOSH-3420:~/csvserver$ docker port csvserver
+khayal@L-KGHOSH-3420:~/csvserver$ docker inspect csvserver | jq '.[0].NetworkSettings.Ports'
+{
+  "9300/tcp": null
+}
+khayal@L-KGHOSH-3420:~/csvserver$
+khayal@L-KGHOSH-3420:~/csvserver$
+khayal@L-KGHOSH-3420:~/csvserver$ docker rm csvserver
+Error response from daemon: cannot remove container "/csvserver": container is running: stop the container before removing or force remove
+khayal@L-KGHOSH-3420:~/csvserver$
+khayal@L-KGHOSH-3420:~/csvserver$
+khayal@L-KGHOSH-3420:~/csvserver$
+khayal@L-KGHOSH-3420:~/csvserver$ docker stop csvserver
+csvserver
+khayal@L-KGHOSH-3420:~/csvserver$
+khayal@L-KGHOSH-3420:~/csvserver$ docker rm csvserver
+Error response from daemon: No such container: csvserver
+khayal@L-KGHOSH-3420:~/csvserver$
+khayal@L-KGHOSH-3420:~/csvserver$
+khayal@L-KGHOSH-3420:~/csvserver$ docker ps -a
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+khayal@L-KGHOSH-3420:~/csvserver$
+khayal@L-KGHOSH-3420:~/csvserver$
+khayal@L-KGHOSH-3420:~/csvserver$
+khayal@L-KGHOSH-3420:~/csvserver$ docker run -d --name csvserver -v "$PWD/inputFile":/csvserver/inputdata infracloudio/csvserver:latest
+2acc5d05137fcc0d770b4b03067ee5f8d57f434b6ec8a50d416c516a38eb7dea
+khayal@L-KGHOSH-3420:~/csvserver$
+khayal@L-KGHOSH-3420:~/csvserver$ docker ps
+CONTAINER ID   IMAGE                           COMMAND                  CREATED         STATUS         PORTS      NAMES
+2acc5d05137f   infracloudio/csvserver:latest   "/csvserver/csvserver"   3 seconds ago   Up 2 seconds   9300/tcp   csvserver
+khayal@L-KGHOSH-3420:~/csvserver$
+khayal@L-KGHOSH-3420:~/csvserver$ docker exec -ti csvserver /bin/bash
+[root@2acc5d05137f csvserver]#
+[root@2acc5d05137f csvserver]# netstat -tuln
+Active Internet connections (only servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State
+tcp6       0      0 :::9300                 :::*                    LISTEN
+[root@2acc5d05137f csvserver]#
+[root@2acc5d05137f csvserver]# exit
+exit
+khayal@L-KGHOSH-3420:~/csvserver$ docker rm -f csvserver
+csvserver
+khayal@L-KGHOSH-3420:~/csvserver$
+khayal@L-KGHOSH-3420:~/csvserver$
+khayal@L-KGHOSH-3420:~/csvserver$ docker run -d --name csvserver -p 9393:9300 -e CSVSERVER_BORDER=Orange -v "$PWD/inputFile":/csvserver/inputdata infracloudio/csvserver:latest
+3659454412da287782b10222d39716f9015858796d762be3fb956cf8e7579f37
+khayal@L-KGHOSH-3420:~/csvserver$
+khayal@L-KGHOSH-3420:~/csvserver$
+khayal@L-KGHOSH-3420:~/csvserver$ docker ps
+CONTAINER ID   IMAGE                           COMMAND                  CREATED         STATUS         PORTS                                       NAMES
+3659454412da   infracloudio/csvserver:latest   "/csvserver/csvserver"   4 seconds ago   Up 3 seconds   0.0.0.0:9393->9300/tcp, :::9393->9300/tcp   csvserver
+khayal@L-KGHOSH-3420:~/csvserver$
+khayal@L-KGHOSH-3420:~/csvserver$
+khayal@L-KGHOSH-3420:~/csvserver$
